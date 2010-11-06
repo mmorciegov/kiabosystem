@@ -16,9 +16,9 @@
  * @ref Boleto
  */
 class Boleto extends FormaPagamento {
-    private $nomeDoCliente; /// Armazena o nome do cliente
-    private $data; /// Armazena a data da compra
-    private $vencimento; /// Armazena o vencimento de vencimento do boleto
+    private $nomeDoCliente; /// Variavel que armazena o nome do cliente
+    private $data; /// Variavel que armazena a data da compra
+    private $vencimento; /// Variavel que armazena o vencimento de vencimento do boleto
 
 
     /** Construtor - inicia as variaveis com os valores disponibilizados

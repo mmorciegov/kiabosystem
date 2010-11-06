@@ -18,7 +18,7 @@
 
 
 class FormaPagamento {
-    private $codigo;
+    private $codigo; /// Armazena o codigo do pagamento
 
 
     /** Construtor

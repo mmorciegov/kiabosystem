@@ -16,14 +16,13 @@
  * @ref Venda
  */
 class Venda {
-    private $codigoDeVenda;
-    private $codigoDeCliente;
-    private $listaDeProdutos;
-    private $pagamentoCartao;
-    private $pagamentoBoleto;
-    private $dataCompra;
-    private $valor;
-    private $quantidadeDeParcelas;
+    private $codigoDeVenda; /// Variavel que armazena o codigo da venda
+    private $codigoDeCliente; /// Variavel que armazena o codigo do cliente
+    private $pagamentoCartao; /// Variavel que armazena um objeto do tipo Cartao
+    private $pagamentoBoleto; /// Variavel que armazena um objeto do tipo Boleto
+    private $dataCompra; /// Variavel que armazena a data da compra
+    private $valor; /// Variavel que armazena o valor da compra
+    private $quantidadeDeParcelas; /// Variavel que armazena a quantidade de parcelas
 
     /** Contrutor - inicia a varavel $produtos com um array
      */

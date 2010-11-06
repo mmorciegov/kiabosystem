@@ -12,8 +12,8 @@
  * @version 1.0
  * @group UEFS - Engenharia da Computacao
  * @see Projeto de Graduação para a disciplina de Engenharia de Software 2010.2
- * @link Repositorio <http://kiabosystem.googlecode.com/svn/trunk/Model>
- * @ref Venda
+ * @link Repositorio <http://kiabosystem.googlecode.com/svn/trunk/Model/FormasDePagamento>
+ * @ref FormaPagamento
  */
 
 

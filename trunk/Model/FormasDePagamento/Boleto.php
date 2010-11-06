@@ -1,13 +1,19 @@
 <?php
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Classe Boleto - Responsavel por definir pagamentos realizados por boletos bancarios.
+ * Ela eh uma subclasse de FormaPagamento.
  */
 
 /**
- * Description of Boleto
+ * Descrição da Classe Boleto
  *
- * @author Rafael
+ * @author Rafael Tosta Santos <rafa.ecomp@gmail.com>
+ * @date 01/11/2010
+ * @version 1.0
+ * @group UEFS - Engenharia da Computacao
+ * @see Projeto de Graduação para a disciplina de Engenharia de Software 2010.2
+ * @link Repositorio <http://kiabosystem.googlecode.com/svn/trunk/Model/FormasDePagamento>
+ * @ref Boleto
  */
 class Boleto extends FormaPagamento {
     private $nomeDoCliente;

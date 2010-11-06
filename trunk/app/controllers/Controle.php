@@ -20,9 +20,9 @@
  * @link Repositorio <http://kiabosystem.googlecode.com/svn/trunk/app/controllers>
  * @ref Controle
  */
-class Controle extends AppController{
-    
-    
+class Controle extends AppController {
+
+
 
 }
 ?>

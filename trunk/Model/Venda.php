@@ -84,7 +84,7 @@ class Venda {
 
     }
 
-    /** Retorna a quantidades de parcelas da ultima compra? ou de todas ? verificar isso
+    /** Retorna a quantidades de parcelas da venda
      *
      * @return <int> $quantParcelas retorna um int que informa a quantidade de parcelas
      */
@@ -92,7 +92,7 @@ class Venda {
 
     }
 
-    /** Define nova quantidade de parcela do produto
+    /** Define nova quantidade de parcela da venda
      *
      * @param <int> $novaQuantParcela
      */

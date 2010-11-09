@@ -16,7 +16,7 @@
  * @ref Venda
  */
 class Venda {
-    
+    /** Atributos utilizado por essa classe*/
     /** Armazena o codigo da venda
      *
      * @var <String> $codigoDeVenda

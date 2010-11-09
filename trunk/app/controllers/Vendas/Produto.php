@@ -1,15 +1,20 @@
 <?php
-
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Classe Produto - Responsavel por armazenar as informacoes de produtos.
  */
 
 /**
- * Description of Produto
+ * Descrição da Classe Produto
  *
- * @author Luan
+ * @author Luan <...@gmail.com>
+ * @date 09/11/2010
+ * @version 1.0
+ * @group UEFS - Engenharia da Computacao
+ * @see Projeto de Graduação para a disciplina de Engenharia de Software 2010.2
+ * @link Repositorio <http://kiabosystem.googlecode.com/svn/trunk/app/controllers/Vendas>
+ * @ref Produto
  */
+
 class Produto {
 
     /** Armazena o codigo do produto

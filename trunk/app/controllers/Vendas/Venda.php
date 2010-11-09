@@ -17,7 +17,7 @@
  * @ref Venda
  */
 class Venda {
-    /** Atributos utilizado por essa classe */
+    /** Atributos utilizado pela classe */
 
     /** Armazena o codigo da venda
      *
@@ -112,7 +112,7 @@ class Venda {
      */
     public function addProduto($novoProduto) {
         // adiciona novo produto na lista de produtos
-        $this->listaDeProdutos = array_unshift($novoProduto);
+        array_unshift($this->listaDeProdutos,$novoProduto);
     }
 
     /** Busca um produto pelo codigo do produto

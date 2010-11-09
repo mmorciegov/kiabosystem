@@ -12,9 +12,25 @@
  */
 class Produto {
 
+    /** Armazena o codigo do produto
+     *
+     * @var <String> $codigo
+     */
     private $codigo;
+    /** Armazena o nome do produto
+     *
+     * @var <String> $nome
+     */
     private $nome;
+    /** Armazena o valor do produto
+     *
+     * @var <float> $valor
+     */
     private $valor;
+    /** Armazena a categoria do produto
+     *
+     * @var <Categoria> $categoria
+     */
     private $categoria;
 
     /** Construtor - define o codigo do produto

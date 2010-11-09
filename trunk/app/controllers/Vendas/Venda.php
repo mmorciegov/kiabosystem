@@ -29,16 +29,11 @@ class Venda {
      * @var <String> $codigoDeCliente
      */
     private $codigoDeCliente;
-    /** Armazena um objeto do tipo Cartao
+    /** Armazena um objeto do tipo Cartao ou Boleto
      *
-     * @var <Cartao> $pagamentoCartao
+     * @var <?> $pagamento
      */
-    private $pagamentoCartao;
-    /** Armazena um objeto do tipo Boleto
-     *
-     * @var <Boleto> $pagamentoBoleto
-     */
-    private $pagamentoBoleto;
+    private $pagamento;
     /** Armazena a data da compra
      *
      * @var <String> $dataCompra
@@ -145,36 +140,20 @@ class Venda {
         $this->quantidadeDeParcelas = $novaQuantParcela;
     }
 
-    /** Retorna o pagamento do cartao
-     *
-     * @return <Cartao> $cartao
-     */
-    public function getPagamentoCartao() {
-        return $this->pagamentoCartao;
-    }
-
     /** Define novo pagamento
      *
      * @param <Cartao> $cartao
      */
-    public function setPagamentoCartao($cartao) {
-        $this->pagamentoCartao = $cartao;
-    }
-
-    /** Retorna o pagamento do boleto
-     *
-     * @return <Boleto> $boleto
-     */
-    public function getPagamentoBoleto() {
-        return $this->pagamentoBoleto;
+    public function setPagamento($cartao) {
+        $this->pagamento = $cartao;
     }
 
     /** Define novo pagamento
      *
      * @param <Boleto> $boleto
      */
-    public function setPagamentoBoleto($boleto) {
-        $this->pagamentoBoleto = $boleto;
+    public function setPagamento($boleto) {
+        $this->pagamento = $boleto;
     }
 
 }

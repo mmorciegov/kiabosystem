@@ -63,7 +63,6 @@ class Produto {
     /** Define o novo codigo do produto
      *
      * @param <String> $codigo - Codigo do produto
-     * @return void
      */
     public function setCodigo($codigo) {
         $this->codigo = $codigo;
@@ -80,7 +79,6 @@ class Produto {
     /** Define o novo nome do produto
      *
      * @param <String> $nome - nome do produto
-     * @return void
      */
     public function setNome($nome) {
         $this->nome = $nome;
@@ -97,7 +95,6 @@ class Produto {
     /** Define o novo valor do produto
      *
      * @param <float> $valor - valor do produto
-     * @return void
      */
     public function setValor($valor) {
         $this->valor = $valor;
@@ -114,7 +111,6 @@ class Produto {
     /** Define a nova categoria referente ao produto
      *
      * @param <Categoria> $categoria - categoria referente ao produto
-     * @return void
      */
     public function setCategoria($categoria) {
         $this->categoria = $categoria;

@@ -16,33 +16,62 @@
  * @ref Venda
  */
 class Venda {
-    private $codigoDeVenda; /// Variavel que armazena o codigo da venda
-    private $codigoDeCliente; /// Variavel que armazena o codigo do cliente
-    private $pagamentoCartao; /// Variavel que armazena um objeto do tipo Cartao
-    private $pagamentoBoleto; /// Variavel que armazena um objeto do tipo Boleto
-    private $dataCompra; /// Variavel que armazena a data da compra
-    private $valor; /// Variavel que armazena o valor da compra
-    private $quantidadeDeParcelas; /// Variavel que armazena a quantidade de parcelas
+    
+    /** Armazena o codigo da venda
+     *
+     * @var <String> $codigoDeVenda
+     */
+    private $codigoDeVenda;
+
+    /** Armazena o codigo do cliente
+     *
+     * @var <String> $codigoDeCliente
+     */
+    private $codigoDeCliente;
+
+    /** Armazena um objeto do tipo Cartao
+     *
+     * @var <Cartao> $pagamentoCartao
+     */
+    private $pagamentoCartao;
+
+    /** Armazena um objeto do tipo Boleto
+     *
+     * @var <Boleto> $pagamentoBoleto
+     */
+    private $pagamentoBoleto;
+
+    /** Armazena a data da compra
+     *
+     * @var <String> $dataCompra
+     */
+    private $dataCompra;
+
+    /** Armazena o valor da compra
+     *
+     * @var <float> $valor
+     */
+    private $valor;
+
+    /** Armazena a quantidade de parcelas
+     *
+     * @var <int> $quantidadeDeParcelas
+     */
+    private $quantidadeDeParcelas;
+
+    /** Armazena uma lista de produtos
+     *
+     * @param <Produto> $listaDeProdutos
+     */
+    private $listaDeProdutos;
 
     /** Contrutor - inicia a varavel $produtos com um array
      */
-    public function  __construct() {
+    public function  __construct($listaDeProdutos) {
         $this->listaDeProdutos = array();
     }
 
-    /** Cadastra uma venda de um determinado cliente
-     *
-     * @param <String> $cliente $cliente identifica o cliente que esta realizando a venda
-     * @param <Array<Produtos>> $produtos $produtos definido pelo tipo array que contem os produtos do cliente
-     * @param <int> $pagamento $pagamento define o tipo de pagamento
-     * @param <int> $parcelas $parcelas eh do tipo int e define a quantidades de parcelas
-     */
-    public function cadastrarVenda($cliente, $produtos, $pagamento, $parcelas){
-
-
-    }
-
-    /** Retorna o codigo da venda
+      /** Retorna o codigo da venda
      *
      * @return <String> $codigoDeVenda retorna uma string com o codigo da venda
      */

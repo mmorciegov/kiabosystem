@@ -71,7 +71,8 @@ class Venda {
      * @param <Produto> $novoProduto novo produto a ser incerido na lista de produtos
      */
     public function addProduto($novoProduto){
-        $this->listaDeProdutos
+        // adiciona novo produto na lista de produtos
+        $this->listaDeProdutos = array_unshift($novoProduto);
     }
 
     /** Busca um produto pelo codigo do produto

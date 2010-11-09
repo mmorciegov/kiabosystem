@@ -1,5 +1,6 @@
 <?php
-/* 
+
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -10,89 +11,106 @@
  * @author Luan
  */
 class Usuario {
+
+    /** Armazena o nome do usuario
+     *
+     * @var <String> $nome
+     */
     private $nome;
+    /** Armazena o login do usuario
+     *
+     * @var <String> $login
+     */
     private $login;
+    /** Armazena a senha do usuario
+     *
+     * @var <String> senha
+     */
     private $senha;
+    /** Armazena as permissoes do usuario
+     *
+     * @var <array<boolean> $permissoes
+     */
     private $permissoes;
 
-     /** Construtor - define o codigo do usuário
+    /** Construtor - define o codigo do usuário
      *
      * @param <String> $nome
      * @param <String> $login
-      * @param <String> $senha
-      * @param <boolena[]> $permissoes
+     * @param <String> $senha
+     * @param <array<booelan>> $permissoes
      */
-    public function  __construct($nome, $login, $senha, $permissoes) {
-
+    public function __construct($nome, $login, $senha, $permissoes) {
+        $this->nome =  $nome;
+        $this->login = $login;
+        $this->senha = $senha;
+        $this->permissoes = $permissoes;
     }
 
-     /** Retorna o nome do usuario
+    /** Retorna o nome do usuario
      *
      * @return <String> $nome
      */
-    public function getNome(){
-
+    public function getNome() {
+        return $this->nome;
     }
 
-     /** Define o novo nome do usuario
+    /** Define o novo nome do usuario
      *
      * @param <String> $nome
-     * @return void
      */
-    public function setNome($nome){
-
+    public function setNome($nome) {
+        $this->nome = $nome;
     }
 
-     /** Retorna o login do usuario
+    /** Retorna o login do usuario
      *
      * @return <String> $login
      */
-    public function getLogin(){
-
+    public function getLogin() {
+        return $this->login;
+        
     }
 
-     /** Define o novo login do usuario
+    /** Define o novo login do usuario
      *
      * @param <String> $login
-     * @return void
      */
-    public function setLogin($login){
-
+    public function setLogin($login) {
+        $this->login = $login;
     }
 
-     /** Retorna a senhan do usuario
+    /** Retorna a senhan do usuario
      *
      * @return <String> $senha
      */
-    public function getSenha(){
-
+    public function getSenha() {
+        return $this->senha;
     }
 
-     /** Define a nova senha do usuario
+    /** Define a nova senha do usuario
      *
      * @param <String> $senha
-     * @return void
      */
-    public function setLogin($senha){
-
+    public function setLogin($senha) {
+        $this->senha = $senha;
     }
 
-     /** Retorna as permissoes do usuario
+    /** Retorna as permissoes do usuario
      *
-     * @return <boolena[]> $permissoes
+     * @return <array<boolean>> $permissoes
      */
-    public function getPermissoes(){
-
+    public function getPermissoes() {
+        return $this->permissoes;
     }
 
-     /** Define as novas permissoes do usuario
+    /** Define as novas permissoes do usuario
      *
      * @param <boolean[]> $permissoes
-     * @return void
      */
-    public function setLogin($permissoes){
-
+    public function setLogin($permissoes) {
+        $this->permissoes = $permissoes;
     }
-
 }
+
 ?>

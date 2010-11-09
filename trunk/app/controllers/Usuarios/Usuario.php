@@ -106,7 +106,7 @@ class Usuario {
 
     /** Define as novas permissoes do usuario
      *
-     * @param <boolean[]> $permissoes
+     * @param <array<boolean>> $permissoes
      */
     public function setLogin($permissoes) {
         $this->permissoes = $permissoes;

@@ -32,7 +32,7 @@ class Venda {
 
     /** Cadastra uma venda de um determinado cliente
      *
-     * @param <String> $cliente $cliente identifica o cliente que esta realizando a venda\n
+     * @param <String> $cliente $cliente identifica o cliente que esta realizando a venda
      * @param <Array<Produtos>> $produtos $produtos definido pelo tipo array que contem os produtos do cliente
      * @param <int> $pagamento $pagamento define o tipo de pagamento
      * @param <int> $parcelas $parcelas eh do tipo int e define a quantidades de parcelas
@@ -71,7 +71,7 @@ class Venda {
      * @param <Produto> $novoProduto novo produto a ser incerido na lista de produtos
      */
     public function addProduto($novoProduto){
-
+        $this->listaDeProdutos
     }
 
     /** Busca um produto pelo codigo do produto

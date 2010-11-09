@@ -1,4 +1,4 @@
-<?php
+'<?php
 /*
  * Classe Cartao - Responsavel por definir pagamentos realizados por Cartao.
  * Ela eh uma subclasse de FormaPagamento.

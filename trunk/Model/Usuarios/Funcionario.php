@@ -9,6 +9,9 @@
  *
  * @author Luan
  */
+
+include 'Usuario.php';
+
 class Funcionario extends Usuario {
     private $codigoFuncionario;
 

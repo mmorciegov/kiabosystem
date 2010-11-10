@@ -10,6 +10,9 @@
  *
  * @author Luan
  */
+
+include 'Usuario.php';
+
 class Administrador extends Usuario {
 
     /** Armazena o codigo do administrado do sistema

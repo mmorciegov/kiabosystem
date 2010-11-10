@@ -10,6 +10,9 @@
  *
  * @author Luan
  */
+
+include 'Usuario.php';
+
 class Cliente extends Usuario {
 
     /** Armazena o endereco do cliente

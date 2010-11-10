@@ -59,7 +59,7 @@ class Cliente extends Usuario {
      * @param <array<Venda>> $listaDeVendas
      * @param <String> $codigoCliente
      */
-    public function __construct($nome, $login, $senha, $permissoes, $endereco, $telefone, $cpf, $email, $listaDeVendas, $codigoCliente) {
+ /*   public function __construct($nome, $login, $senha, $permissoes, $endereco, $telefone, $cpf, $email, $listaDeVendas, $codigoCliente) {
         parent::__construct($nome, $login, $senha, $permissoes);
         $this->listaDeVendas = array();
         $this->endereco = $endereco;
@@ -68,7 +68,12 @@ class Cliente extends Usuario {
         $this->email = $email;
         $this->listaDeVendas = $listaDeVendas;
         $this->codigoCliente = $codigoCliente;
-    }
+    }*/
+
+     public function __construct(){
+         
+     }
+
 
     /** Retorna o endereco do cliente
      *

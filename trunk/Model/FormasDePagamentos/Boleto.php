@@ -15,6 +15,9 @@
  * @link Repositorio <http://kiabosystem.googlecode.com/svn/trunk/app/controllers/FormasDePagamento>
  * @ref Boleto
  */
+
+include 'FormaPagamento.php';
+
 class Boleto extends FormaPagamento {
     private $nomeDoCliente; /// Variavel que armazena o nome do cliente
     private $data; /// Variavel que armazena a data da compra

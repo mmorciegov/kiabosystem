@@ -15,6 +15,9 @@
  * @link Repositorio <http://kiabosystem.googlecode.com/svn/trunk/app/controllers/FormasDePagamento>
  * @ref Cartao
  */
+
+include 'FormaPagamento.php';
+
 class Cartao extends FormaDePagamento{
     private $nomeTitular;
     private $validade;

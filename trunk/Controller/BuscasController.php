@@ -17,7 +17,7 @@ class BuscasController {
      * @param <int> $categoria
      */
     public function buscaAvancada($nomeProduto, $categoria){
-
+        
     }
 }
 ?>

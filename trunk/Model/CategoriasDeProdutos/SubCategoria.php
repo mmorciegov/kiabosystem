@@ -9,8 +9,20 @@
  *
  * @author Luan
  */
+
+include '../Vendas/Produto.php';
+
 class SubCategoria {
+    /** Nome da subCategoria
+     *
+     * @var <String> $nome
+     */
     private $nome;
+
+    /** Array de produto associados a essa subcategoria
+     *
+     * @var <array<Produtos>> $subCategorias
+     */
     private $listaDeProdutos;
 
      /** Construtor - define o codigo da SubCategoria

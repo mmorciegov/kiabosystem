@@ -9,8 +9,20 @@
  *
  * @author Luan
  */
+
+include 'SubCategoria.php';
+
 class Categoria {
+    /** Nome da categoria
+     *
+     * @var <String> $nome
+     */
     private $nome;
+
+    /** Array de subcategorias associados a essa categora
+     *
+     * @var <array<subCategoria>> $subCategorias
+     */
     private $subCategorias;
 
      /** Construtor - define o codigo da categoria

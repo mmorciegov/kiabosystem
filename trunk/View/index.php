@@ -10,10 +10,11 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-       
+        include '../Model/BuscaCEPOnline.php';
+        $busca = new BuscaCEPOnline();
+        $busca->busca_cep('44033060');
+        $busca->imprime();
         
-
-
         ?>
     </body>
 </html>

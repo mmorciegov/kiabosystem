@@ -9,6 +9,9 @@
  * para orientacao a objetos
  * 
  */
+//include 'mysqlConectaCep.php';
+//include 'mysqlExecutaCep.php';
+
 class BuscaCEPOnline {
 
     private $cidade;
@@ -19,7 +22,18 @@ class BuscaCEPOnline {
 
     public function busca_cep($cep) {
 
-        
+      /*  //Executa a consulta pelo banco de dados
+        $sql = "SELECT * FROM cep";
+        $res = mysqlExecutaCep($id, $sql);
+
+
+        while ($row = mysql_fetch_array($res)) {
+
+
+            echo $row['bairro'];
+        }*/
+
+
         $resultado = @file_get_contents('http://republicavirtual.com.br/web_cep.php?cep=' . urlencode($cep) . '&formato=query_string');
 
         if (!$resultado) {
@@ -53,11 +67,10 @@ class BuscaCEPOnline {
 
                 break;
         }
-
     }
 
-    public function imprime(){
-         echo 'Bairro: '.$this->bairro . ' ,Cidade: '.$this->cidade;
+    public function imprime() {
+        echo 'Bairro: ' . $this->bairro . ' ,Cidade: ' . $this->cidade;
     }
 
 }

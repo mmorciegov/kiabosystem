@@ -92,7 +92,7 @@ class Usuario {
      *
      * @param <String> $senha
      */
-    public function setLogin($senha) {
+    public function setSenha($senha) {
         $this->senha = $senha;
     }
 
@@ -108,7 +108,7 @@ class Usuario {
      *
      * @param <array<boolean>> $permissoes
      */
-    public function setLogin($permissoes) {
+    public function setPermissoes($permissoes) {
         $this->permissoes = $permissoes;
     }
 }

@@ -10,12 +10,9 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        include '../Model/FormasDePagamentos/Boleto.php';
-        //include '../Model/Usuarios/Cliente.php';
-      
-      /*  $busca = new BuscasController();
-        $busca->buscaAvancada("computador", "01");*/
        
+        
+
 
         ?>
     </body>

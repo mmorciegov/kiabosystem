@@ -1,4 +1,5 @@
 <?php
+
 /**
  *  AppModel é o model usado como base para todos os outros models da aplicação.
  *  Como está na biblioteca, é usado apenas quando não houver outro AppModel
@@ -8,9 +9,10 @@
  *  @copyright Copyright 2008-2009, Spaghetti* Framework (http://spaghettiphp.org/)
  *
  */
-    
+include '../../core/model.php';
+
 class AppModel extends Model {
     
 }
-    
+
 ?>

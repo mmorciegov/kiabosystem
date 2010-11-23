@@ -25,6 +25,14 @@ class ProdutosController extends AppController {
         
     }
 
+    public function editaproduto(){
+        $this->produtos->update($param,$this->data);
+    }
+
+    public function deleteproduto(){
+        $this->produtos->delete($this->data);
+    }
+
 
 
 }

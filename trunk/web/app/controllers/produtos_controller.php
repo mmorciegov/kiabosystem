@@ -12,17 +12,17 @@
  */
 class ProdutosController extends AppController {
 
-    function cadastraProduto() {
+    public function cadastraProduto() {
         if (!empty($this->data)) :
             $this->Produtos->save($this->data);
             $this->redirect("/produtos/imprimeproduto");
         endif;
     }
 
-    function imprimeProdutos() {
+    public function imprimeProdutos() {
 
-        $this->set("produtos", $this->Users->all());
-        $this->redirect("/produtos/cadastraProduto");
+        $this->set("produtos", $this->Produtos->all());
+      
     }
 
 }

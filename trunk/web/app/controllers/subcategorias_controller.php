@@ -22,6 +22,14 @@ class SubcategoriasController extends AppController {
         $this->set("subcategorias", $this->subcategorias->all());
     }
 
+
+    public function editasubcategoria(){
+
+    }
+
+    public function deletesubcategoria(){
+        
+    }
 }
 
 ?>

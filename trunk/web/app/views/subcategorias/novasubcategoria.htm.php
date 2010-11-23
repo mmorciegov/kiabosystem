@@ -1,10 +1,11 @@
 
 <?php
-$form->create();
-$form->imput("idSubcategoria");
-$form->imput("categorias_idCategoria");
-$form->imput("descricao");
-$form->imput("nome");
 
-$form->close("cadastra_subcategoria");
+echo $form->create();
+echo $form->imput("idSubcategoria");
+echo $form->imput("categorias_idCategoria");
+echo $form->imput("descricao");
+echo $form->imput("nome");
+
+echo $form->close("cadastra_subcategoria");
 ?>

@@ -1,4 +1,4 @@
-
+<h2> Cadastra produtos!! </h2>
 <?php
 
 echo $form->create();

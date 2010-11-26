@@ -16,7 +16,6 @@ if(version_compare(PHP_VERSION, "5.0") < 0):
     trigger_error("Spaghetti only works with PHP 5.0 or newer", E_USER_ERROR);
 endif;
 
-
 /**
   *  Versão atual do Spaghetti*.
   */
@@ -64,6 +63,5 @@ require_once CORE . DS . "bootstrap.php";
 
 $dispatcher = new Dispatcher;
 $dispatcher->dispatch();
-
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 /**
  *  AuthComponent é o responsável pela autenticação e controle de acesso na aplicação.
- *
+ * 
  *  @license   http://www.opensource.org/licenses/mit-license.php The MIT License
  *  @copyright Copyright 2008-2009, Spaghetti* Framework (http://spaghettiphp.org/)
  *
@@ -25,8 +25,8 @@ class AuthComponent extends Component {
       */
     public $fields = array(
         "id" => "id",
-        "username" => "username",
-        "password" => "password"
+        "username" => "usuario",
+        "password" => "senha"
     );
     /**
       *  Método de hash a ser usado para senhas.
@@ -100,7 +100,7 @@ class AuthComponent extends Component {
       *  Mensagem de erro para acesso não autorizado.
       */
     public $authError = "notAuthorized";
-
+    
     public $authenticate = false;
 
     /**
@@ -267,13 +267,12 @@ class AuthComponent extends Component {
             ));
             if(!empty($user)):
                 $this->authenticate = true;
-                $this->loginRedirect;
             else:
                 $this->error($this->loginError);
             endif;
         endif;
     }
-
+    
     public function loginRedirect() {
         if($this->authenticate):
             $this->authenticate($this->user["id"], $this->user["password"]);

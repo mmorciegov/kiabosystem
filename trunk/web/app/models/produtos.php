@@ -9,7 +9,7 @@
  *
  * @author Rafael
  */
-class produtos extends AppModel{
+class Produtos extends AppModel{
     //put your code here
 }
 ?>

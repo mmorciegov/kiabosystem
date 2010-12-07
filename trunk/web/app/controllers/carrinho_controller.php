@@ -49,7 +49,7 @@ class CarrinhoController extends AppController{
         $this->carrinho->save($data);
 
         // redireciona a view
-        $this->redirect("");
+        $this->redirect("/carrinho");
     }
 
     //destroi um carrinho
@@ -60,7 +60,7 @@ class CarrinhoController extends AppController{
         $this->carrinho->delete($cart_id);
 
          // redireciona a view
-        $this->redirect("");
+        $this->redirect("/carrinho");
     }
 
     //atualiza os dados de uma sessão caso ela seja excluida

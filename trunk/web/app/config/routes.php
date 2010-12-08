@@ -15,6 +15,8 @@
  */
 Mapper::root("categorias");
 
+//Mapper::connect("/users/admin/index_admin", "/")
+
 /**
  * Caso você precise de um painel de administração, você pode descomentar a linha
  * abaixo. Você também pode adicionar quantos prefixos mais forem necessários.

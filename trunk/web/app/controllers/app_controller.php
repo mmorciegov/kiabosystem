@@ -10,16 +10,8 @@
  */
 
 class AppController extends Controller {
-
-      public $components = array("Auth");   //variavel de instancia (carregar um componente) -- componente ja esta sendo carregado
-
-      public function beforeFilter(){ //sempre vai ser chamado e executado em todos os controllers , antes da execu��o da action
-
-             $this->AuthComponent->deny("/users"); //negar os recursos da aplica��o que se quer proibir o acesso (exigir login) * -> bloqueia tudo
-             $this->AuthComponent->allow();  //inverso do deny
-             $this->AuthComponent->check();
-
-      }
+	
+	
 
 }
 

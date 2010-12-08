@@ -16,9 +16,13 @@ class ClientesController extends AppController {
 		//public $layout = "clientes";
 		$this->set("clientes", $this->Clientes->All());
 	}
+	
+
+		
 	function read($id = null){
 		$this->set("cliente", $this->Clientes->findById($id));
 	}
+	
 	function edit($id = null){
 		if (!empty($this->data)) :
 			$this->data["Usuarios_id_usuario"] = $id;
@@ -27,11 +31,13 @@ class ClientesController extends AppController {
         endif;
 		$this->set("cliente", $this->Clientes->findById($id));
 	}
+	
 	function delete($id = null){
 		$this->autoRender = false;	
 		$this->Clientes->delete($id);
 		$this->redirect("/clientes/");
 	}
+	
 	function add(){
 		$this->setAction("edit");
 	}

@@ -1,37 +1,43 @@
 <?php
-
+/* 
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 class UsersController extends AppController{
-
     
-    public function index(){
+     public $layout = "cadastro";
+	 
+     public $components = array("Auth");
 
-        $this->set("usuarios", $this->Users->all());
+     public function index_admin() {
         
-        
-    }
+        $this->set("usuario", $_SESSION["username"]);
+        $this->set("permissao", $_SESSION['permission']);
 
-    public function login(){
+     }
 
-        $this->AuthComponent->login();
-            
-    }
+     public function index_cliente() {
 
-    public function logout(){
-        
-        $this->AuthComponent->logout();
-        
-    }
+        $this->set("usuario", $_SESSION["username"]);
+        $this->set("permissao", $_SESSION['permission']);
 
-    public function register(){
-        if(!empty ($this->data)):
-                    
+     }
+
+     public function index_funcionario() {
+
+        $this->set("usuario", $_SESSION["username"]);
+        $this->set("permissao", $_SESSION['permission']);
+     }
+
+     public function register(){
+         if(!empty ($this->data)):
+
             $this->Users->save($this->data);
-            $this->redirect("/users/login");
+            //$this->redirect("/users/login");
 
         endif;
+     }
 
-    }
 }
-
 
 ?>

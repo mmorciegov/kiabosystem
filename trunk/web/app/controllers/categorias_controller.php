@@ -2,11 +2,41 @@
 class CategoriasController extends AppController{
 	
 public $uses = array("Categorias", "Subcategorias");
+
 	
 	function index(){
 		
-		$this->set("categorias",$this->Categorias->All());
-		$this->set("subcategorias",$this->Subcategorias->All());
+	$menuGeral = "";
+
+	$menu = $this->Categorias->all();
+	$subcat = $this->Subcategorias->all();
+	
+	$menuGeral .= "<div class='Exibe_cat'>"; 
+	
+	
+	foreach($menu as $item) {	
+	
+	
+	$menuGeral .= "<b><a href=/betonis/categorias/$item[nome]>"."<h3>" . $item["nome"] ."</h3>"." </b></a>";
+	
+	foreach($subcat as $sub) {
+		
+		if($sub["categorias_idCategoria"] == $item["idCategoria"]){
+			
+		$menuGeral .= "<a href=/betonis/subcategorias/$sub[nome]>" . $sub["nome"] . "</a><br>";	
+		}
+		
+		}
+	
+	}
+	
+	$menuGeral .= "</div>";
+	
+	$this->set("menu", $menuGeral);
+
+		
+		//$this->set("categorias",$this->Categorias->All());
+		//$this->set("subcategorias",$this->Subcategorias->All());
 	
 	}
 		

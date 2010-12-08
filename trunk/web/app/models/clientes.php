@@ -7,9 +7,10 @@
 /**
  * Description of clientes
  *
- * @author Alen
+ * @author Marcelo
  */
-class clientes extends AppModel {
-    //put your code here
+class Clientes extends AppModel {
+
+   
 }
 ?>

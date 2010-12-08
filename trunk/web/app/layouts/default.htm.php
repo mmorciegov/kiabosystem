@@ -21,20 +21,21 @@
 <!--Início do bloco #GERAL -->
 <div id="GERAL">
 <?php echo $this->contentForLayout ?>
-	<!--Início do bloco #TOPO -->
+<!--Início do bloco #TOPO -->
 	<div id="TOPO"><div id="logotipo"><?php echo $html->image("logo.png",array("topo"),array("class"=>"logotipo"));?></div>
     
 	
 
 	  <div class="tag_form_senha"></div>
+          <?php echo $this->element("formulario_de_login"); ?>
       
       <div class="botao_login"></div>
 	</div><!--Fim do bloco #TOPO -->
   
     <!--Início do #MENU topo-->
     <ul id="MENU">
-        <li><a ><?php echo $html->image("home_icon.png",array("home"),array("class"=>"style_topo"));?> Home</a></li>
-        <li><a> <?php echo $html->image("castro_icon.png",array("cadastro"),array("class"=>"style_topo"));?>Cadastro</a></li>
+        <li><a ><?php echo $html->image("home_icon.png",array("home"),array("class"=>"style_topo"));?> <?php echo $html->link("Home", "/home");?></a></li>
+        <li><a> <?php echo $html->image("castro_icon.png",array("cadastro"),array("class"=>"style_topo"));?><?php echo $html->link("Cadastro", "/cadastro");?></a></li>
         <li><a><?php echo $html->image("log_icon.png",array("log"),array("class"=>"style_topo"));?> Login</a></li>
         <li><a><?php echo $html->image("sac_img.png",array("sac"),array("class"=>"style_topo"));?>SAC</a></li>
     </ul> <!--Fim do #MENU -->
@@ -79,8 +80,7 @@
 	<div class="Exibe_cat"></div></div> <!--Fim da Barra Lateral esquerda -->
         
         <div class="PROMOCOES"></div>
-       <div class="EXI_PROMOCOES"></div> 
-        
+       <div class="EXI_PROMOCOES"></div>
         
         	<!--Início da Barra Lateral direita -->
 

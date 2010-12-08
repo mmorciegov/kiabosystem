@@ -12,6 +12,9 @@
  *  O Spaghetti suporta apenas a versão 5 do PHP. Um erro é gerado caso a versão
  *  seja anterior a 5.0.
  */
+
+session_start();
+
 if(version_compare(PHP_VERSION, "5.0") < 0):
     trigger_error("Spaghetti only works with PHP 5.0 or newer", E_USER_ERROR);
 endif;

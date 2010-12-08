@@ -295,6 +295,7 @@ class MysqlDatasource extends Datasource {
         ));
         return $this->query($query);
     }
+	
     /**
      *  Remove registros da tabela do banco de dados.
      *

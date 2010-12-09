@@ -3,7 +3,7 @@
 <?php
 
 
-echo $form->create();
+echo $form->create("/users/registrar");
 echo $form->input("username");
 echo $form->input("password");
 echo $form->input("permission", array('label'=> 'Permissao', 'div'=>null));

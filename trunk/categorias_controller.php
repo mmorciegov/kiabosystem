@@ -17,13 +17,13 @@ public $uses = array("Categorias", "Subcategorias");
 	foreach($menu as $item) {	
 	
 	
-	$menuGeral .= "<b><a href=/betonis/categorias/$item[nome]>"."<h3>" . $item["nome"] ."</h3>"." </b></a>";
+	$menuGeral .= "<b><a href=/bertonis/categorias/exibeCategoria/$item[idCategoria]>"."<h3>" . $item["nome"] ."</h3>"." </b></a>";
 	
 	foreach($subcat as $sub) {
 		
 		if($sub["categorias_idCategoria"] == $item["idCategoria"]){
 			
-		$menuGeral .= "<a href=/betonis/subcategorias/$sub[nome]>" . $sub["nome"] . "</a><br>";	
+		$menuGeral .= "<a href=/bertonis/subcategorias/exibeSubcategoria/$sub[idSubcategoria]>" . $sub["nome"] . "</a><br>";	
 		}
 		
 		}
@@ -38,6 +38,11 @@ public $uses = array("Categorias", "Subcategorias");
 		//$this->set("categorias",$this->Categorias->All());
 		//$this->set("subcategorias",$this->Subcategorias->All());
 	
+	}
+	
+	public function exibeCategoria($id = null){
+		pr($id);
+		//rotinas de pegar os dados da categoria e exibí-los
 	}
 		
 	function read($id = null){

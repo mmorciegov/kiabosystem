@@ -16,13 +16,13 @@ class CarrinhoController extends AppController{
 
     // inicia uma sessão
     public function __construct() {
-        session_start();
+      //  session_start(); retirado pois a sessão vai ser definida pelo usuario
         parent::__construct();
     }
 
     public function index() {
         //obtem o id da sessão
-        $uid = session_id();
+        $uid = session_id(); // atribuir a $uid o id da sessão do usuario
 
         //busca todos os campos com o uid correspondente
         $cart = $this->carrinho->findAll(array("uid" => $uid));
@@ -33,10 +33,15 @@ class CarrinhoController extends AppController{
         $this->set("uid", $uid);
     }
 
+    //finaliza a compra do cliente
+    public function finalizaCompra($uid = null){
+        //armazenar os campos correspondentes da tabela de vendas
+    }
+
     // armazena um novo produto no carrinho
     public function create($product_id = null) {
         //obtem o id da sessão
-        $uid = session_id();
+        $uid = session_id();  // atribuir a $uid o id da sessão do usuario
 
         //define o id do usuario e o id do produto para ser salvo
         $data = array(

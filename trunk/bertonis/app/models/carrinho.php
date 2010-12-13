@@ -18,7 +18,7 @@ class carrinho extends AppModel {
     public function getTotalPrice($uid=null) {
 
         //busca o carrinho pelo id do usuario
-        $cart = $this->findAll(array("uid" => $uid));
+        $cart = $this->all(array("uid" => $uid));
 
         // recupera o preco dos produtos do carrinho buscado
         $prices = array();

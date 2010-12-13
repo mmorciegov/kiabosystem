@@ -25,7 +25,7 @@ class CarrinhoController extends AppController{
         $uid = session_id(); // atribuir a $uid o id da sessão do usuario
 
         //busca todos os campos com o uid correspondente
-        $cart = $this->carrinho->findAll(array("uid" => $uid));
+        $cart = $this->carrinho->all(array("uid" => $uid));
 
         //define as variaveis a ser passada para a view
         $this->set("carrinho", $cart);

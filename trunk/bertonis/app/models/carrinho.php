@@ -26,7 +26,7 @@ class carrinho extends AppModel {
             $prices[] = $item['produtos']['preco'];
         endforeach;
 
-        return array_sum($prices);
+        return array_sum($prices); //soma os preços e retorna
     }
 
 }

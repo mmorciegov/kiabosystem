@@ -16,7 +16,7 @@ class CarrinhoController extends AppController{
 
     // inicia uma sessão
     public function __construct() {
-      //  session_start(); retirado pois a sessão vai ser definida pelo usuario
+        session_start(); //retirado pois a sessão vai ser definida pelo usuario
         parent::__construct();
     }
 

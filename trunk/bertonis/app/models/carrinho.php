@@ -10,8 +10,8 @@
  *
  * @author Rafael
  */
-class carrinho extends AppModel {
-
+class Carrinho extends AppModel {
+    public $table = "carrinho" ;
    
     public $belongsTo = array("produtos");
 

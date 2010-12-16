@@ -1,7 +1,7 @@
 <?php
 	echo $form->create("/users/logar");        
 	echo "<div class='form_usuario'>";
-		echo $form->input("username", array('label'=>'Usuarios', 'div'=>null));
+		echo $form->input("username", array('label'=>'Usuario', 'div'=>null));
 	echo "</div>"; 
 	echo "<div class='form_senha'>";
 		echo $form->input("password", array('label'=>'Senha', 'div'=>null, 'type'=>'password'));

@@ -12,7 +12,7 @@ Config::write("database", array(
         "host" => "localhost",
         "user" => "root",
         "password" => "",
-        "database" => "bertonis",
+        "database" => "bertoni",
         "prefix" => ""
     ),
     "production" => array(

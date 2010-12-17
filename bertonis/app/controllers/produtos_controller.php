@@ -10,7 +10,6 @@ class ProdutosController extends AppController {
 	public $uses = array ("Categorias", "Subcategorias", "Produtos", "Imagens" );
 	public $components = array("Upload");
 	
-	public $layout = "none";
 	
 	//função para mostrar imagem
 	public function mostra($cod = null) {	
@@ -28,13 +27,13 @@ class ProdutosController extends AppController {
 				"perPage" => 2
 			));
 		
-		$itensGeral .= "<div class='exi_PROMOCOES'>"; 
+		$itensGeral .= "<div class='frame_prods_in'>"; 
 	    
 		foreach($produtos as $item) {
 			
 			$itensGeral .= "<a href=/bertonis/produtos/exibeProduto/$item[cod]>"."<img src='/bertonis/images/".$item["foto"]."'><br>".$item["nome"]."</h3> - "." R$".$item["preco"] ." </a>"."<br>";
 		}
-		$itensGeral .= "</div><div class='PROMOCOES'></div>";
+		$itensGeral .= "</div>";
 		$this->set("produtos", $itensGeral);
 	}
 	

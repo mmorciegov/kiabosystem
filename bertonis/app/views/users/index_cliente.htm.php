@@ -1,8 +1,5 @@
-<div class="CADASTRO"><br><br><h1> Pagina do CLIENTE!! </h1>
+<div class="ADMIN">
 
-
-<br><h2><?php pr("Bem vindo: " . $user); ?> </h2>
-<h3><?php pr("Permissao: CLIENTE"); ?> </h3>
 
 
 </div>

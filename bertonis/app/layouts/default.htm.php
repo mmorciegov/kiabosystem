@@ -77,10 +77,7 @@
     
 		<!--Início da Barra Lateral esquerda -->
 	<div class="BARRA"><div class="MARCADOR_BARRA_CAT"></div>
-	<div class="Exibe_cat"></div></div> <!--Fim da Barra Lateral esquerda -->
-        
-        <div class="PROMOCOES"></div>
-       <div class="EXI_PROMOCOES"></div>
+	</div> <!--Fim da Barra Lateral esquerda -->
         
         	<!--Início da Barra Lateral direita -->
 

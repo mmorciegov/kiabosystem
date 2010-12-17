@@ -39,9 +39,9 @@ class ProdutosController extends AppController {
 	}
 	
 	public function exibeProduto($id = null){
-		//$this->redirect("/carrinho/addProdutos/". $id);
+		$this->redirect("/carrinho/addProdutos/". $id);
 		//rotinas de pegar os dados do cliente e exibí-los
-		$this->redirect("/carrinho/deletaProduto/". $id);
+		//$this->redirect("/carrinho/deletaProduto/". $id);
 	}
 
 	public function paginacaoPorSubcat($id = null){

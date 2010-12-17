@@ -428,3 +428,19 @@ color:#036;
 	width: 160px;
 	height: 87px;
 	}
+	
+	.icone_RELC{
+	position:absolute;
+	left:70px;
+	top: 235px;
+	width: 110px;
+	height: 87px;
+	}
+	
+	.label_RELC{
+	position:absolute;
+	left:100px;
+	top: 15px;
+	width: 110px;
+	height: 87px;
+	}

@@ -444,3 +444,36 @@ color:#036;
 	width: 110px;
 	height: 87px;
 	}
+	
+.frame_prods{
+	background: url(../images/frame_prod.png);
+	font: 13px "Trebuchet MS", Calibri,    			    Verdana, Arial;
+	position: absolute;
+	height: 512px;
+	width: 681px;
+	left: 170px;
+	top: 160px;
+
+}
+
+.frame_prods_in{
+	
+	font: 13px "Trebuchet MS", Calibri,    			    Verdana, Arial;
+	position: absolute;
+	height: 500px;
+	width: 500px;
+	left: 20px;
+	top: 70px;
+
+}
+
+.frame_pagig{
+	
+	font: 13px "Trebuchet MS", Calibri,    			    Verdana, Arial;
+	position: absolute;
+	height: 30px;
+	width: 30px;
+	left: 500px;
+	top: 420px;
+
+}

@@ -1,9 +1,8 @@
 <?php 
 class CategoriasController extends AppController{
 	
-public $uses = array("Categorias", "Subcategorias","Produtos");
+public $uses = array("Categorias", "Subcategorias","Produtos", "carrinho");
 
-	
 	function index(){
 		
 	$menuGeral = "";
@@ -33,7 +32,7 @@ public $uses = array("Categorias", "Subcategorias","Produtos");
 	$menuGeral .= "</div>";
 	
 	//====================================================================
-	//TESTE PARA A EXIBIÇÃO DE TUDO EM UMA TELA SÓ
+	//TESTE PARA A EXIBIï¿½ï¿½O DE TUDO EM UMA TELA Sï¿½
 	$this->set("menu", $menuGeral);
 	
 		$helper = array("Html", "Pagination");
@@ -44,6 +43,19 @@ public $uses = array("Categorias", "Subcategorias","Produtos");
         ));
         $this->set("products", $products);
 	//====================================================================
+
+
+        //====================================================================
+	//TESTE PARA A EXIBIï¿½ï¿½O DE TUDO EM UMA TELA Sï¿½
+
+        $uid = $_SESSION["id_usuario"];
+          $quantidadeP = $this->carrinho->count(array(
+	    "conditions" => array("uid" => $uid)
+	));
+        $this->set("quantidade", $quantidadeP);
+
+         //====================================================================
+
 		
 		//$this->set("categorias",$this->Categorias->All());
 		//$this->set("subcategorias",$this->Subcategorias->All());
@@ -52,7 +64,7 @@ public $uses = array("Categorias", "Subcategorias","Produtos");
 	
 	public function exibeCategoria($id = null){
 		pr($id);
-		//rotinas de pegar os dados da categoria e exibí-los
+		//rotinas de pegar os dados da categoria e exibï¿½-los
 	}
 		
 	function read($id = null){

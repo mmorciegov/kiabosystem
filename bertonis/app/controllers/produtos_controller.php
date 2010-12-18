@@ -9,7 +9,7 @@ class ProdutosController extends AppController {
 
 	public $uses = array ("Categorias", "Subcategorias", "Produtos", "Imagens" );
 	public $components = array("Upload");
-	
+
 	
 	//função para mostrar imagem
 	public function mostra($cod = null) {	
@@ -20,6 +20,7 @@ class ProdutosController extends AppController {
 	}
 	
 	public function paginacao(){
+	
 		
 		$itensGeral = "";
 		$produtos =  $this->Produtos->paginate(array(
@@ -42,6 +43,8 @@ class ProdutosController extends AppController {
 		//rotinas de pegar os dados do cliente e exibí-los
 		//$this->redirect("/carrinho/deletaProduto/". $id);
 	}
+	
+	
 
 	public function paginacaoPorSubcat($id = null){
 			// para chamar essa funcao usa-se essa estrutura : $this->setAction("paginacaoPorSubcat", parametro);
@@ -53,12 +56,12 @@ class ProdutosController extends AppController {
 				"conditions" => array("subcategorias_idSubcategoria" => $id)
 			));
 		
-			$itensGeral .= "<div class='exi_PROMOCOES'>"; 
+			$itensGeral .= " <div class='frame_prods'><div class='frame_prods_in'>"; 
 	    
 			foreach($produtos as $item) {	
-				$itensGeral .= "<b><a href=/bertonis/produtos/exibeProduto/$item[cod]></b>".$item["nome"]."</h3> - "." R$".$item["preco"] ." </a>"."<br>";
+				$itensGeral .= "<b><a href=/bertonis/produtos/exibeProduto/$item[cod]></b>"."<img src='/bertonis/images/".$item["foto"]."'>".$item["nome"]."</h3> - "." R$".$item["preco"] ." </a>"."<br>";
 			}
-			$itensGeral .= "</div><div class='PROMOCOES'></div>";
+			$itensGeral .= "</div></div>";
 			$this->set("produtos", $itensGeral);
 			
 			
@@ -85,6 +88,20 @@ class ProdutosController extends AppController {
 		 $this->set("produtos",$this->Produtos->All());
 		
 		}
+		
+		
+    
+    public function teste() {
+		
+		$helper = array("Html", "Pagination");
+		
+        $products = $this->Produtos->paginate(array(
+                "perPage" => 2,
+                "page" => $this->page()
+        ));
+        $this->set("products", $products);
+    }
+
 
     
 }

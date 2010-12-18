@@ -21,18 +21,39 @@ class CarrinhoController extends AppController {
         parent::__construct();
     }
 
-    public function index() {
+    public function index($nome = null) {
+        pr($nome);
         //obtem o id da sessão
         $uid = $_SESSION["id_usuario"]; // atribuir a $uid o id da sessão do usuario
         //busca todos os campos com o uid correspondente
-        $cart = $this->carrinho->all(array("uid" => $uid));
+        //$cart = $this->carrinho->all(array("uid" => $uid));
+        $produtosCarrinho = array("conditions" => array(
+            "uid" => $uid
+            )
+        );
 
-//        foreach ($cart as $products){
-//            $produtos[] = $products["product_id"];
-//        }
-        //define as variaveis a ser passada para a view
+        $cart = $this->carrinho->all($produtosCarrinho);
+        //pr($cart);
+        foreach ($cart as $ca){
+            $idProd[] = $ca["product_id"];          
+        }
+        $this->set("nomesP", $this->produtos->all(array("conditions" => array("cod" => $idProd))));
+        pr($idProd);
+        $this->set("QuantidadeP", $this->produtos->count(array("conditions" => array("cod" => $idProd, "nome" => $nome))));
+        //print_r($idProd);        
+        
+//        $nomeProduto = array("conditions" => array(
+//            "cod" => $idProd
+//            )
+//        );
+
+        //$nomesProd = $this->prudutos->fetch("SELECT nome FROM produtos WHERE cod = '" . $idProd . "'");
+        //$nomesProd = $this->produtos->all($nomeProdutos);
+        //pr($nomesProd);
+        
+        
         $this->set("carrinho", $cart);
-        //$this->set("prod", $produtos[]);
+        $this->set("produtos", $nomesProd);
         $this->set("total_preco", $this->carrinho->getTotalPrice($uid));
         $this->set("uid", $uid);
     }
@@ -43,14 +64,15 @@ class CarrinhoController extends AppController {
     }
 
     // armazena um novo produto no carrinho
-    public function addProdutos($product_id = null) {
-        pr($product_id);
+    public function addProdutos($product_id = null, $nome_produto = null) {
+        //pr($product_id);
         //obtem o id da sessão
         $uid = $_SESSION["id_usuario"];  // atribuir a $uid o id da sessão do usuario
         //define o id do usuario e o id do produto para ser salvo
         $data = array(
             "uid" => $uid,
-            "product_id" => $product_id
+            "product_id" => $product_id,
+            "nome" => $nome_produto
         );
 
         // sava os dados definidos        
@@ -62,7 +84,7 @@ class CarrinhoController extends AppController {
 
     //destroi um carrinho
     public function deletaProduto($idProduto = null) {
-        //$_SESSION['message'] = "Item removed.";
+        
         $uid = $_SESSION["id_usuario"];
         // deleta os produtos do carrinho definido pelo cart_id
         //$tuplaProduto = $this->carrinho->all(array("uid" => $uid, "product_id" => $idProduto));
@@ -72,7 +94,8 @@ class CarrinhoController extends AppController {
         foreach ($tuplaProduto as $dados){
             $this->carrinho->delete($dados["id"]);
         }
-        
+
+        //$this->Users->query("DELETE FROM users WHERE approved = 0");
 
         // redireciona a view
         //$this->redirect("/carrinho");

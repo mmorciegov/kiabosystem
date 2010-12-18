@@ -9,6 +9,7 @@ class ProdutosController extends AppController {
 
 	public $uses = array ("Categorias", "Subcategorias", "Produtos", "Imagens" );
 	public $components = array("Upload");
+	public $layout = "none";
 
 	
 	//função para mostrar imagem
@@ -101,9 +102,25 @@ class ProdutosController extends AppController {
         ));
         $this->set("products", $products);
     }
+	
+	public function destaque(){
+		
+     	$itensGeral = "";
+		$produtos =  $this->Produtos->paginate(array(
+				"page" => $this->page(),
+				"perPage" => 2
+			));
+		
+		$itensGeral .= "<div class='frame_prods_in'>"; 
+	    
+		foreach($produtos as $item) {
+			
+			$itensGeral .= "<a href=/bertonis/produtos/exibeProduto/$item[cod]>"."<img src='/bertonis/images/".$item["foto"]."'><br>".$item["nome"]."</h3> - "." R$".$item["preco"] ." </a>"."<br>";
+		}
+		$itensGeral .= "</div>";
+		$this->set("produtos", $itensGeral);
 
-
-    
+}
 }
 
 ?>

@@ -38,7 +38,7 @@ class CarrinhoController extends AppController {
             $idProd[] = $ca["product_id"];          
         }
         $this->set("nomesP", $this->produtos->all(array("conditions" => array("cod" => $idProd))));
-        pr($idProd);
+        //pr($idProd);
         $this->set("QuantidadeP", $this->produtos->count(array("conditions" => array("cod" => $idProd, "nome" => $nome))));
         //print_r($idProd);        
         
@@ -56,6 +56,12 @@ class CarrinhoController extends AppController {
         $this->set("produtos", $nomesProd);
         $this->set("total_preco", $this->carrinho->getTotalPrice($uid));
         $this->set("uid", $uid);
+
+//        $quantidadeP = $this->carrinho->count(array(
+//	    "conditions" => array("uid" => $uid)
+//	));
+//        $this->set("quantidade", $quantidadeP);
+        //$this->redirect("/carrinho/addProdutos/". $id);
     }
 
     //finaliza a compra do cliente

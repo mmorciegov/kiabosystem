@@ -71,8 +71,8 @@ class CarrinhoController extends AppController {
         //define o id do usuario e o id do produto para ser salvo
         $data = array(
             "uid" => $uid,
-            "product_id" => $product_id,
-            "nome" => $nome_produto
+            "product_id" => $product_id
+            //"nome" => $nome_produto
         );
 
         // sava os dados definidos        

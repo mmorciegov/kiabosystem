@@ -64,10 +64,14 @@
 					<option value="17">Livros</option>                   
 		</select>
 	</div>
-    <input name="Produto" type="text" class="BPRODUTO" id="bProduto" value="Busca" />
-    <div class="botao_busca"><input name="busca" type="button" value="Buscar" />
-    <div class="carrinho"><div  class="label_car"><b><a href="/bertonis/carrinho/index">Vazio</a></b></div></div>
-    </div>
+    
+    <form name="frmBusca" method="post" action="?a=buscar" >
+           <input name="Produto" type="text" class="BPRODUTO" id="bProduto" />
+            <div class="botao_busca">       
+                <input name="busca" type="submit" value="Buscar" />
+                <div class="carrinho"><div  class="label_car"><b><a href="/bertonis/carrinho/index">Produtos</a></b></div></div>
+            </div>
+    </form>       
     
 
 </div><!--Fim do bloco #BBUSCA -->
@@ -93,3 +97,38 @@
 
 </body>
 </html>
+
+
+<?php
+$conn = @mysql_connect("localhost", "root", "dede22") or die("Não foi possível a conexão com o Banco");
+$db = @mysql_select_db("bertonis", $conn) or die("Não foi possível selecionar o Banco");
+// Recuperamos a ação enviada pelo formulário
+$a = $_GET['a'];
+
+// Verificamos se a ação é de busca
+if ($a == "buscar") {
+
+	// Pegamos a palavra
+	$palavra = trim($_POST['Produto']);
+
+	// Verificamos no banco de dados produtos equivalente a palavra digitada
+        //$tuplaProduto = $this->produtos->fetch("SELECT * FROM produtos WHERE nome LIKE '%".$palavra."%' ORDER BY nome");
+
+	$sql = mysql_query("SELECT * FROM produtos WHERE nome LIKE '%".$palavra."%' ORDER BY nome");
+
+	// Descobrimos o total de registros encontrados
+	$numRegistros = mysql_num_rows($sql);
+
+	// Se houver pelo menos um registro, exibe-o
+	if ($numRegistros != 0) {
+		// Exibe os produtos e seus respectivos preços
+		while ($produto = mysql_fetch_object($sql)) {
+			echo $produto->nome . " (R$ ".$produto->preco.") <br />";
+		}
+	// Se não houver registros
+	} else {
+		echo "Nenhum produto foi encontrado com a palavra ".$palavra."";
+	}
+}
+
+?>

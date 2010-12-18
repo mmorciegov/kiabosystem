@@ -18,10 +18,10 @@
 
 <body >
 
-<!--Início do bloco #GERAL -->
+<!--Inï¿½cio do bloco #GERAL -->
 <div id="GERAL">
 <?php echo $this->contentForLayout ?>
-<!--Início do bloco #TOPO -->
+<!--Inï¿½cio do bloco #TOPO -->
 	<div id="TOPO"><div id="logotipo"><?php echo $html->image("logo.png",array("topo"),array("class"=>"logotipo"));?></div>
     
 	
@@ -32,7 +32,7 @@
       <div class="botao_login"></div>
 	</div><!--Fim do bloco #TOPO -->
   
-    <!--Início do #MENU topo-->
+    <!--Inï¿½cio do #MENU topo-->
     <ul id="MENU">
         <li><a ><?php echo $html->image("home_icon.png",array("home"),array("class"=>"style_topo"));?> <?php echo $html->link("Home", "/home");?></a></li>
         <li><a> <?php echo $html->image("castro_icon.png",array("cadastro"),array("class"=>"style_topo"));?><?php echo $html->link("Cadastro", "/cadastro");?></a></li>
@@ -40,7 +40,7 @@
         <li><a><?php echo $html->image("sac_img.png",array("sac"),array("class"=>"style_topo"));?>SAC</a></li>
     </ul> <!--Fim do #MENU -->
     
-    <!--Início do bloco #BBUSCA -->
+    <!--Inï¿½cio do bloco #BBUSCA -->
 <div id="BBUSCA">
 <div class="BUSCA">
 		<select  name="dep" title="Departamento">
@@ -66,27 +66,27 @@
 	</div>
     <input name="Produto" type="text" class="BPRODUTO" id="bProduto" value="Busca" />
     <div class="botao_busca"><input name="busca" type="button" value="Buscar" />
-    <div class="carrinho"><div  class="label_car"><b><a href="carrinho.php">Vazio</a></b></div></div>
+    <div class="carrinho"><div  class="label_car"><b><a href="/bertonis/carrinho/index">Vazio</a></b></div></div>
     </div>
     
 
 </div><!--Fim do bloco #BBUSCA -->
    
-    <!--Início do bloco #CONTEUDO -->
+    <!--Inï¿½cio do bloco #CONTEUDO -->
 <div id="CONTEUDO"> 
     
-		<!--Início da Barra Lateral esquerda -->
+		<!--Inï¿½cio da Barra Lateral esquerda -->
 	<div class="BARRA"><div class="MARCADOR_BARRA_CAT"></div>
 	</div> <!--Fim da Barra Lateral esquerda -->
         
-        	<!--Início da Barra Lateral direita -->
+        	<!--Inï¿½cio da Barra Lateral direita -->
 
 <div class="BARRAD"> <div class="MARCADOR_BARRA_SUG"></div></div>
 	 <!--Fim da Barra Lateral direita -->
         
   </div><!--Fim do bloco #CONTEUDO -->
 
-	<!--Início do bloco #RODAPE -->
+	<!--Inï¿½cio do bloco #RODAPE -->
 	<div id="RODAPE" align="center"> Copyright NTC Solitions</div><!--Fim do bloco #RODAPE -->
 
 </div><!--Fim do bloco #GERAL -->

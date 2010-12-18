@@ -27,18 +27,30 @@ class CarrinhoController extends AppController {
         $uid = $_SESSION["id_usuario"]; // atribuir a $uid o id da sessão do usuario
         //busca todos os campos com o uid correspondente
         //$cart = $this->carrinho->all(array("uid" => $uid));
-        $produtosCarrinho = array("conditions" => array(
-            "uid" => $uid
-            )
-        );
 
-        $cart = $this->carrinho->all($produtosCarrinho);
+
+//        $produtosCarrinho = array("conditions" => array(
+//            "uid" => $uid
+//            )
+//        );
+//
+        $cart = $this->carrinho->fetch("SELECT DISTINCT (carrinho.product_id), carrinho.uid, produtos.nome
+            FROM carrinho INNER JOIN produtos ON carrinho.product_id = produtos.cod
+            WHERE carrinho.uid = '" . $uid . "'");
+
+        //$cart = $this->carrinho->all($produtosCarrinho);
         //pr($cart);
-        foreach ($cart as $ca){
-            $idProd[] = $ca["product_id"];          
-        }
-        $this->set("nomesP", $this->produtos->all(array("conditions" => array("cod" => $idProd))));
+//        foreach ($cart as $ca){
+//            $idProd[] = $ca["product_id"];
+//        }
+        //$this->set("nomesP", $this->produtos->all(array("conditions" => array("cod" => $idProd))));
+        $this->set("nomesP", $cart);
         //pr($idProd);
+
+        $quantidadeProdutos = $this->carrinho->fetch("SELECT DISTINCT (carrinho.product_id), carrinho.uid, produtos.nome
+            FROM carrinho INNER JOIN produtos ON carrinho.product_id = produtos.cod
+            WHERE carrinho.uid = '" . $uid . "'");
+
         $this->set("QuantidadeP", $this->produtos->count(array("conditions" => array("cod" => $idProd, "nome" => $nome))));
         //print_r($idProd);        
         
@@ -71,7 +83,7 @@ class CarrinhoController extends AppController {
 
     // armazena um novo produto no carrinho
     public function addProdutos($product_id = null, $nome_produto = null) {
-        //pr($product_id);
+        
         //obtem o id da sessão
         $uid = $_SESSION["id_usuario"];  // atribuir a $uid o id da sessão do usuario
         //define o id do usuario e o id do produto para ser salvo

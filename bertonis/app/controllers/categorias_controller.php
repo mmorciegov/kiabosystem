@@ -1,7 +1,7 @@
 <?php 
 class CategoriasController extends AppController{
 	
-public $uses = array("Categorias", "Subcategorias");
+public $uses = array("Categorias", "Subcategorias","Produtos");
 
 	
 	function index(){
@@ -32,8 +32,18 @@ public $uses = array("Categorias", "Subcategorias");
 	
 	$menuGeral .= "</div>";
 	
+	//====================================================================
+	//TESTE PARA A EXIBIÇÃO DE TUDO EM UMA TELA SÓ
 	$this->set("menu", $menuGeral);
-
+	
+		$helper = array("Html", "Pagination");
+		
+        $products = $this->Produtos->paginate(array(
+                "perPage" => 2,
+                "page" => $this->page()
+        ));
+        $this->set("products", $products);
+	//====================================================================
 		
 		//$this->set("categorias",$this->Categorias->All());
 		//$this->set("subcategorias",$this->Subcategorias->All());

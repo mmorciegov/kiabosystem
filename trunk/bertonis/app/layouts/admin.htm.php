@@ -33,7 +33,7 @@
   
     <!--Início do #MENU topo-->
     <ul id="MENU">
-    	<li><a><?php echo $html->image("home_icon.png",array("log"),array("class"=>"style_topo"));?> Home</a></li>
+    	<li><a ><?php echo $html->image("home_icon.png",array("home"),array("class"=>"style_topo"));?> <?php echo $html->link("Home", "/categorias");?></a></li>
         <li><a ><?php echo $html->image("log_icon.png",array("/users/logout"),array("class"=>"style_topo"));?><?php echo $html->link("Logout", "/users/logout");?></a></li>
         <li><a><?php echo $html->image("sac_img.png",array("sac"),array("class"=>"style_topo"));?>SAC</a></li>
     </ul> <!--Fim do #MENU -->

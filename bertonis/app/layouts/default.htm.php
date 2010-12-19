@@ -34,9 +34,8 @@
   
     <!--In�cio do #MENU topo-->
     <ul id="MENU">
-        <li><a ><?php echo $html->image("home_icon.png",array("home"),array("class"=>"style_topo"));?> <?php echo $html->link("Home", "/home");?></a></li>
+        <li><a ><?php echo $html->image("home_icon.png",array("home"),array("class"=>"style_topo"));?> <?php echo $html->link("Home", "/categorias");?></a></li>
         <li><a> <?php echo $html->image("castro_icon.png",array("cadastro"),array("class"=>"style_topo"));?><?php echo $html->link("Cadastro", "/cadastro");?></a></li>
-        <li><a><?php echo $html->image("log_icon.png",array("log"),array("class"=>"style_topo"));?> Login</a></li>
         <li><a><?php echo $html->image("sac_img.png",array("sac"),array("class"=>"style_topo"));?>SAC</a></li>
     </ul> <!--Fim do #MENU -->
     

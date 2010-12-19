@@ -100,8 +100,8 @@
 
 
 <?php
-$conn = @mysql_connect("localhost", "root", "dede22") or die("Não foi possível a conexão com o Banco");
-$db = @mysql_select_db("bertonis", $conn) or die("Não foi possível selecionar o Banco");
+$conn = @mysql_connect("localhost", "root", "") or die("Não foi possível a conexão com o Banco");
+$db = @mysql_select_db("bertoni", $conn) or die("Não foi possível selecionar o Banco");
 // Recuperamos a ação enviada pelo formulário
 $a = $_GET['a'];
 

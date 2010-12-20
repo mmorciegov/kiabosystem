@@ -9,7 +9,8 @@ class ProdutosController extends AppController {
 
 	public $uses = array ("Categorias", "Subcategorias", "Produtos", "Imagens" );
 	public $components = array("Upload");
-	public $layout = "none";
+	
+	//public $layout = "none";//TODO remover esta linha
 
 	
 	//função para mostrar imagem
@@ -21,27 +22,47 @@ class ProdutosController extends AppController {
 	}
 	
 	public function paginacao(){
-	
-		
 		$itensGeral = "";
 		$produtos =  $this->Produtos->paginate(array(
 				"page" => $this->page(),
-				"perPage" => 2
-			));
+				"perPage" => 3
+		));
 		
-		$itensGeral .= "<div class='frame_prods_in'>"; 
-	    
+		$itensGeral .= "<tr>"; 
+		
+		$cont = 0;//variável que conta o número de linhas da tabela
 		foreach($produtos as $item) {
-			
-			$itensGeral .= "<a href=/bertonis/produtos/exibeProduto/$item[cod]>"."<img src='/bertonis/images/".$item["foto"]."'><br>".$item["nome"]."</h3> - "." R$".$item["preco"] ." </a>"."<br>";
+			$cont++;
+			if($cont == 4){
+				$itensGeral .= "</tr><tr>";
+				$cont=0;
+			}
+			$itensGeral .= "<td align='center'><a href=/bertonis/produtos/exibeProduto/".$item["cod"]."><img src='/bertonis/images/".$item["foto"]."'><br>".$item["nome"]."</h3><br>R$".$item["preco"]." </a></td>";
 		}
-		$itensGeral .= "</div>";
-		$this->set("produtos", $itensGeral);
+			
+		$itensGeral .= "</tr>";
+		
+		$this->set("produtos", $itensGeral);	
 	}
 	
+	//Este método exibe o produto escolhido na tela
+	
 	public function exibeProduto($id = null){
-		$this->redirect("/carrinho/addProdutos/". $id);
-		//rotinas de pegar os dados do cliente e exibí-los
+				
+		$itens = $this->Produtos->fetch("SELECT * FROM produtos WHERE cod = '".$id."' ");
+		
+		foreach	($itens as $item){
+		
+			$prod = "<img src='/bertonis/images/".$item["foto"]."'>"."<h2><b>Nome:</b></h2> ".$item["nome"]."<br>"."<h2><b>Preço:</b></h2> ".$item["preco"]."<br>"."<b>Descrição:</b> ".$item["descricao"]."<br><br><br><a href=/bertonis/carrinho/addProdutos/".$id.">Adicionar ao carrinho</a>";
+		}
+		
+		//monta a tela com os links
+		
+		//seta a variável na view
+		$this->set("produto", $prod);
+		
+		//$this->redirect("/carrinho/addProdutos/".$id);
+		//rotinas de pegar os dados do produto e exib?-los
 		//$this->redirect("/carrinho/deletaProduto/". $id);
 	}
 	
@@ -57,25 +78,23 @@ class ProdutosController extends AppController {
 				"conditions" => array("subcategorias_idSubcategoria" => $id)
 			));
 		
-			$itensGeral .= " <div class='frame_prods'><div class='frame_prods_in'>"; 
-	    
-			foreach($produtos as $item) {	
-				$itensGeral .= "<b><a href=/bertonis/produtos/exibeProduto/$item[cod]></b>"."<img src='/bertonis/images/".$item["foto"]."'>".$item["nome"]."</h3> - "." R$".$item["preco"] ." </a>"."<br>";
+	    	$itensGeral .= "<tr>";
+		
+			$cont = 0;//variável que conta o número de linhas da tabela
+			foreach($produtos as $item) {
+				$cont++;
+				if($cont == 4){
+					$itensGeral .= "</tr><tr>";
+					$cont=0;
+				}
+				$itensGeral .= "<td align='center'><a href=/bertonis/produtos/exibeProduto/".$item["cod"]."><img src='/bertonis/images/".$item["foto"]."'><br>".$item["nome"]."</h3><br>R$".$item["preco"]." </a></td>";
 			}
-			$itensGeral .= "</div></div>";
+			
+			$itensGeral .= "</tr>";
+			
 			$this->set("produtos", $itensGeral);
-			
-			
-			
-			/*
-			$subcat = $this->Subcategorias->firstById($id);
-			$this->set("subcategoria",$subcat);
-			$this->set("products",$this->Produtos->paginate(array(
-				"page" => $this->page(),
-				"perPage" => 3,
-				"conditions" => array("subcategorias_idSubcategoria" => $id
-			))));*/
 	}
+
 
     public function cadastro() {		
         if (!empty($this->data)) :
@@ -102,25 +121,9 @@ class ProdutosController extends AppController {
         ));
         $this->set("products", $products);
     }
-	
-	public function destaque(){
-		
-     	$itensGeral = "";
-		$produtos =  $this->Produtos->paginate(array(
-				"page" => $this->page(),
-				"perPage" => 2
-			));
-		
-		$itensGeral .= "<div class='frame_prods_in'>"; 
-	    
-		foreach($produtos as $item) {
-			
-			$itensGeral .= "<a href=/bertonis/produtos/exibeProduto/$item[cod]>"."<img src='/bertonis/images/".$item["foto"]."'><br>".$item["nome"]."</h3> - "." R$".$item["preco"] ." </a>"."<br>";
-		}
-		$itensGeral .= "</div>";
-		$this->set("produtos", $itensGeral);
 
-}
+
+    
 }
 
 ?>

@@ -31,17 +31,33 @@ public $uses = array("Categorias", "Subcategorias","Produtos", "carrinho");
 	
 	$menuGeral .= "</div>";
 	
+		$this->set("menu", $menuGeral);
+		
+		
 	//====================================================================
 	//TESTE PARA A EXIBI��O DE TUDO EM UMA TELA S�
-	$this->set("menu", $menuGeral);
 	
-		$helper = array("Html", "Pagination");
+	$itensGeral = "";
+		$produtos =  $this->Produtos->paginate(array(
+				"page" => $this->page(),
+				"perPage" => 3
+		));
 		
-        $products = $this->Produtos->paginate(array(
-                "perPage" => 2,
-                "page" => $this->page()
-        ));
-        $this->set("products", $products);
+		$itensGeral .= "<tr>"; 
+		
+		$cont = 0;//variável que conta o número de linhas da tabela
+		foreach($produtos as $item) {
+			$cont++;
+			if($cont == 4){
+				$itensGeral .= "</tr><tr>";
+				$cont=0;
+			}
+			$itensGeral .= "<td align='center'><a href=/bertonis/produtos/exibeProduto/".$item["cod"]."><img src='/bertonis/images/".$item["foto"]."'><br>".$item["nome"]."</h3><br>R$".$item["preco"]." </a></td>";
+		}
+			
+		$itensGeral .= "</tr>";
+		
+		$this->set("produtos", $itensGeral);
 	//====================================================================
 
 

@@ -1,10 +1,8 @@
 <?php
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  * Description of carrinho_controller
  *
@@ -14,7 +12,7 @@ class CarrinhoController extends AppController {
 
     public $helpers = array("html", "form");
     public $uses = array("carrinho", "produtos");
-
+	//public $layout = "none";
     // inicia uma sessão
     public function __construct() {
         //  session_start(); retirado pois a sessão vai ser definida pelo usuario
@@ -25,55 +23,25 @@ class CarrinhoController extends AppController {
         pr($nome);
         //obtem o id da sessão
         $uid = $_SESSION["id_usuario"]; // atribuir a $uid o id da sessão do usuario
-        //busca todos os campos com o uid correspondente
-        //$cart = $this->carrinho->all(array("uid" => $uid));
-
-
-//        $produtosCarrinho = array("conditions" => array(
-//            "uid" => $uid
-//            )
-//        );
-//
-        $cart = $this->carrinho->fetch("SELECT DISTINCT (carrinho.product_id), carrinho.uid, produtos.nome
+        $cart = $this->carrinho->fetch("SELECT DISTINCT (carrinho.product_id), carrinho.uid,carrinho.quantidade, produtos.nome
             FROM carrinho INNER JOIN produtos ON carrinho.product_id = produtos.cod
             WHERE carrinho.uid = '" . $uid . "'");
-
-        //$cart = $this->carrinho->all($produtosCarrinho);
-        //pr($cart);
-//        foreach ($cart as $ca){
-//            $idProd[] = $ca["product_id"];
-//        }
-        //$this->set("nomesP", $this->produtos->all(array("conditions" => array("cod" => $idProd))));
-        $this->set("nomesP", $cart);
-        //pr($idProd);
+		
+		$fim = "<a href='/bertonis/compras/index/".$uid."'>Finalizar Compra</a>";
+		
+		$this->set("link", $fim);
+        
+		$this->set("nomesP", $cart);		
 
         $quantidadeProdutos = $this->carrinho->fetch("SELECT DISTINCT (carrinho.product_id), carrinho.uid, produtos.nome
             FROM carrinho INNER JOIN produtos ON carrinho.product_id = produtos.cod
             WHERE carrinho.uid = '" . $uid . "'");
 
-        $this->set("QuantidadeP", $this->produtos->count(array("conditions" => array("cod" => $idProd, "nome" => $nome))));
-        //print_r($idProd);        
-        
-//        $nomeProduto = array("conditions" => array(
-//            "cod" => $idProd
-//            )
-//        );
-
-        //$nomesProd = $this->prudutos->fetch("SELECT nome FROM produtos WHERE cod = '" . $idProd . "'");
-        //$nomesProd = $this->produtos->all($nomeProdutos);
-        //pr($nomesProd);
-        
-        
+        $this->set("QuantidadeP", $this->produtos->count(array("conditions" => array("cod" => $idProd, "nome" => $nome))));       
         $this->set("carrinho", $cart);
         $this->set("produtos", $nomesProd);
         $this->set("total_preco", $this->carrinho->getTotalPrice($uid));
         $this->set("uid", $uid);
-
-//        $quantidadeP = $this->carrinho->count(array(
-//	    "conditions" => array("uid" => $uid)
-//	));
-//        $this->set("quantidade", $quantidadeP);
-        //$this->redirect("/carrinho/addProdutos/". $id);
     }
 
     //finaliza a compra do cliente
@@ -82,41 +50,50 @@ class CarrinhoController extends AppController {
     }
 
     // armazena um novo produto no carrinho
-    public function addProdutos($product_id = null, $nome_produto = null) {
+    public function addProdutos($product_id = null) {
         
         //obtem o id da sessão
         $uid = $_SESSION["id_usuario"];  // atribuir a $uid o id da sessão do usuario
-        //define o id do usuario e o id do produto para ser salvo
-        $data = array(
-            "uid" => $uid,
-            "product_id" => $product_id
-            //"nome" => $nome_produto
-        );
+		
+		//procura o item no carrinho
+		$prod = $this->carrinho->fetch("SELECT id, uid, product_id, quantidade FROM carrinho WHERE product_id = '" .$product_id."'");
+		
+		if($prod!=null){// se o produto já estiver no carrinho
+			foreach($prod as $produto){
+				$produto["quantidade"]++;
+				$this->carrinho->delete($produto["id"]);
+				$this->carrinho->save(array("uid" => $produto["uid"],"product_id" => $produto["product_id"], quantidade => $produto["quantidade"]));
+			}
+		}	else{//caso produto ainda Não esteja no carrinho
+				//define o id do usuario e o id do produto para ser salvo
+        		$data = array(
+            		"uid" => $uid,
+            		"product_id" => $product_id,
+					"quantidade" => 1
+            		//"nome" => $nome_produto
+        		);
 
-        // sava os dados definidos        
-        $this->carrinho->save($data);
-
-        // redireciona a view
+        		// sava os dados definidos        
+        		$this->carrinho->save($data);
+		}//fim do else
+		// redireciona a view
         $this->redirect("/produtos/paginacao");
+				
+				
     }
 
     //destroi um carrinho
     public function deletaProduto($idProduto = null) {
         
         $uid = $_SESSION["id_usuario"];
-        // deleta os produtos do carrinho definido pelo cart_id
-        //$tuplaProduto = $this->carrinho->all(array("uid" => $uid, "product_id" => $idProduto));
+
         $tuplaProduto = $this->carrinho->fetch("SELECT id, uid, product_id FROM carrinho WHERE
                                 product_id = '" . $idProduto . "' and uid = '" . $uid . "'");
-        //pr($tuplaProduto);
-        foreach ($tuplaProduto as $dados){
+        
+		foreach ($tuplaProduto as $dados){
             $this->carrinho->delete($dados["id"]);
         }
 
-        //$this->Users->query("DELETE FROM users WHERE approved = 0");
-
-        // redireciona a view
-        //$this->redirect("/carrinho");
         $this->redirect("/produtos/paginacao");
     }
 

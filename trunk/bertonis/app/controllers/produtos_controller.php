@@ -13,7 +13,7 @@ class ProdutosController extends AppController {
 	//public $layout = "none";//TODO remover esta linha
 
 	
-	//função para mostrar imagem
+	//funï¿½ï¿½o para mostrar imagem
 	public function mostra($cod = null) {	
 		$imagens = $this->Imagens->firstById($cod);
 		//foreach ($imagens as $img){
@@ -30,7 +30,7 @@ class ProdutosController extends AppController {
 		
 		$itensGeral .= "<tr>"; 
 		
-		$cont = 0;//variável que conta o número de linhas da tabela
+		$cont = 0;//variï¿½vel que conta o nï¿½mero de linhas da tabela
 		foreach($produtos as $item) {
 			$cont++;
 			if($cont == 4){
@@ -45,7 +45,7 @@ class ProdutosController extends AppController {
 		$this->set("produtos", $itensGeral);	
 	}
 	
-	//Este método exibe o produto escolhido na tela
+	//Este mï¿½todo exibe o produto escolhido na tela
 	
 	public function exibeProduto($id = null){
 				
@@ -53,12 +53,14 @@ class ProdutosController extends AppController {
 		
 		foreach	($itens as $item){
 		
-			$prod = "<img src='/bertonis/images/".$item["foto"]."'>"."<h2><b>Nome:</b></h2> ".$item["nome"]."<br>"."<h2><b>Preço:</b></h2> ".$item["preco"]."<br>"."<b>Descrição:</b> ".$item["descricao"]."<br><br><br><a href=/bertonis/carrinho/addProdutos/".$id.">Adicionar ao carrinho</a>";
+			$prod = "<img src='/bertonis/images/".$item["foto"]."'>"."<h2><b>Nome:</b></h2> ".$item["nome"].
+                            "<br>"."<h2><b>PreÃ§o:</b></h2> ".$item["preco"]."<br>"."<b>DescriÃ§Ã£o:</b> ".$item["descricao"]."
+                            <br><br><br><a href=/bertonis/carrinho/addProdutos/".$id."/".$item["preco"].">Adicionar ao carrinho</a>";                        
 		}
 		
 		//monta a tela com os links
 		
-		//seta a variável na view
+		//seta a variï¿½vel na view
 		$this->set("produto", $prod);
 		
 		//$this->redirect("/carrinho/addProdutos/".$id);
@@ -80,7 +82,7 @@ class ProdutosController extends AppController {
 		
 	    	$itensGeral .= "<tr>";
 		
-			$cont = 0;//variável que conta o número de linhas da tabela
+			$cont = 0;//variï¿½vel que conta o nï¿½mero de linhas da tabela
 			foreach($produtos as $item) {
 				$cont++;
 				if($cont == 4){

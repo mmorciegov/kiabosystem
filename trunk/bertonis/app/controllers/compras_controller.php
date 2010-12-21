@@ -21,7 +21,9 @@ class ComprasController extends AppController {
                     "clientes_Usuarios_id_usuario" => $id_user,
                     "valor" => $valorTotal,
                     "pgto" => $this->data["pgto"],
-                    "num_parcelas" => $this->data["num_parcelas"]                
+                    "num_parcelas" => $this->data["num_parcelas"],
+                    "hora" => date("H:i"),
+                    "data_2" => date("y/m/d")
             );
             $this->Compras->save($dadosCompra);
             $this->redirect("/categorias");

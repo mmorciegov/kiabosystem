@@ -23,6 +23,7 @@ class CarrinhoController extends AppController {
         
         //obtem o id da sessão
         $uid = $_SESSION["id_usuario"]; // atribuir a $uid o id da sessão do usuario
+        pr($uid);
         $cart = $this->carrinho->fetch("SELECT DISTINCT (carrinho.product_id), carrinho.uid,carrinho.quantidade, produtos.nome
             FROM carrinho INNER JOIN produtos ON carrinho.product_id = produtos.cod
             WHERE carrinho.uid = '" . $uid . "'");
@@ -48,7 +49,7 @@ class CarrinhoController extends AppController {
         $this->set("QuantidadeP", $this->produtos->count(array("conditions" => array("cod" => $idProd, "nome" => $nome))));       
         $this->set("carrinho", $cart);
         $this->set("produtos", $nomesProd);
-        $this->set("total_preco", $this->carrinho->getTotalPrice($uid));
+        //$this->set("total_preco", $this->carrinho->getTotalPrice($uid));
         $this->set("uid", $uid);
 
     }
@@ -63,11 +64,11 @@ class CarrinhoController extends AppController {
     public function addProdutos($product_id = null, $preco = null) {
         
         //obtem o id da sessão
-        $uid = $_SESSION["id_usuario"];  // atribuir a $uid o id da sessão do usuario		
+        $uid = $_SESSION["id_usuario"];  // atribuir a $uid o id da sessão do usuario        
 		//procura o item no carrinho
 		$prod = $this->carrinho->fetch("SELECT DISTINCT (carrinho.product_id), carrinho.id, carrinho.uid,
                     carrinho.quantidade, produtos.preco FROM carrinho INNER JOIN produtos
-                    ON carrinho.product_id = produtos.cod WHERE product_id = '" .$product_id."'");                             
+                    ON carrinho.product_id = produtos.cod WHERE product_id = '" .$product_id."' && uid = '" .$uid."'");
 		
 		if($prod!=null){// se o produto já estiver no carrinho
 			foreach($prod as $produto){

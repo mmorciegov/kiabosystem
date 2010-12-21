@@ -4,12 +4,13 @@
 <?php
 
 echo $form->create();
-echo $form->input("subcategorias_idSubcategoria");
-echo $form->input("descricao");
-echo $form->input("nome");
-echo $form->input("quantidade");
-echo $form->input("preco");
-echo $form->input("promocional");
-echo $form->input('foto', array('type' => 'file', 'label' => 'Imagem:'));
-echo $form->close("NovoProduto");
+echo $form->input("subcategorias_idSubcategoria",array("label" => "ID :<br>"));
+echo $form->input("descricao", 
+array("label" => "Descricao : <br>","type"=>"textarea", "id"=>"descricao"));
+echo $form->input("nome",array("label" => "Nome :<br>"));
+echo $form->input("quantidade",array("label" => "Quantidade :<br>"));
+echo $form->input("preco",array("label" => "Preco :<br>"));
+echo $form->input("promocional",array("label" => "Promocional :<br>"));
+echo $form->input('foto', array('type' => 'file', 'label' => 'Imagem :<br>'))."<br>";
+echo $form->close("Finalizar Cadastro")."<br>";
 ?></div></div>

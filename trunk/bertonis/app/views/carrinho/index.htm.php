@@ -1,18 +1,32 @@
 <div class="CADASTRO"><br><br><h1>CARRINHO!! </h1>
     
-<br><h2><?php pr("Itens inseridos no carrinho:"); ?> </h2><br><br><br><br><br><br>
+    <?php pr("Itens inseridos no carrinho:"); ?>
 
-<h3><p><?php
-//pr($nomesP);
-foreach ($nomesP as $pro){
-    echo "Produto: " . $pro["nome"]; ?> <?php echo "--> Quantidade: " . $QuantidadeP ?> <br>
-<?php }
+    <table align='center' border="1">
+    <tr>
+    <td  align='center'>Nome:</td><td  align='center'>Quantidade:</td>
+    </tr>
+    <?php foreach ($nomesP as $pro){ ?>
+    <tr>
 
-//print_r($carrinho);
+            <?php echo "<td  align='center'>" . $pro["nome"]."</td ><td  align='center'></td>"; ?> <?php echo "<td  align='center'>" . $pro["quantidade"]."</td>" ?>
+
+    </tr>
+    <?php }?>
+    </table>
 
 
-?> </h3>
+    <br><br>
 
+    <?php
+
+    foreach ($valorFinal as $valor){
+        echo "Preco total da compra: " . $valor["SOMA"];
+    }
+
+    ?>
+
+    <br><br><?php echo $link; ?>
 
 </div>
 
